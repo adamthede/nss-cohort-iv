@@ -1,0 +1,56 @@
+/* style.css stylesheet for To Do List html file */
+* {
+  font-family: monospace;
+}
+
+h1 {
+  color: red;
+}
+
+div {
+  color: green;
+}
+
+a[href] {
+  border: 1px solid red;
+  padding: 5px;
+}
+
+a[href="http://www.google.com"] {
+  font-size: 24px;
+  background-color: yellow;
+}
+
+#first-name {
+  border: 5px dotted blue;
+  background-color: orange;
+  font-size: 50px;
+  color: blue;
+}
+
+#last-name {
+  color: red;
+}
+
+.name {
+  font-size: 15px;
+}
+
+#one {
+  border: 1px dashed blue;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.x1 {
+  color: red;
+}
+
+div#one p {
+  background-color: purple;
+}
+
+div#one > p {
+  letter-spacing: 4px;
+}
+

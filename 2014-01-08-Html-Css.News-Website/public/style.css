@@ -1,0 +1,45 @@
+@import url(http://fonts.googleapis.com/css?family=Special+Elite);
+@import url(http://fonts.googleapis.com/css?family=Averia+Sans+Libre);
+
+header {
+  color: purple;
+  border: 1px solid blue;
+  background-color: red;
+}
+
+header h1 {
+  margin-left: 20px;
+  font-family: 'Special Elite', cursive;
+  font-size: 75px;
+}
+
+body {
+  //background: url(/images/tile.jpg);
+  background-color: white;
+}
+
+article p {
+  font-family: 'Averia Sans Libre', cursive;
+  color: purple;
+  letter-spacing: 3px;
+  //line-height: 10px;
+}
+
+a {
+  border: 1px solid green;
+  text-decoration: none;
+  background-color: red;
+  color: yellow;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+a:hover {
+  background-color: yellow;
+  color: red;
+}
+
+ul {
+  list-style-type: none;
+}
+

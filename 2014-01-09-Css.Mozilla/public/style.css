@@ -1,0 +1,130 @@
+/* Stylesheet for Mozilla Website */
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif);
+
+div#main {
+  border: 1px solid red;
+  width: 960px;
+  margin: 0px auto;
+}
+
+body {
+  background: url(images/bg-sand.png);
+}
+
+h1 {
+  color: #c13832;
+  font-size: 84px;
+  font-weight: bold;
+  letter-spacing: -0.05em;
+  margin: 0px 0px 0.05em 0px;
+  font-family: 'Droid Serif', serif;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+  text-align: center;
+  clear: both;
+}
+
+h2 {
+  font-size: 55px;
+  letter-spacing: -0.025em;
+  margin: 0 0 0 0;
+  font-weight: normal;
+  text-align: center;
+  line-height: 1.5;
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
+}
+
+nav ul {
+  float: right;
+}
+
+nav li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 12px;
+}
+
+nav a {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #484848;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.clear {
+  clear: both;
+}
+
+div#accordion li {
+  list-style-type: none;
+  display: inline-block;
+  height: 380px;
+  width: 240px;
+  margin: 0 -25px 0 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+div#accordion a {
+  color: white;
+  position: relative;
+  left: 0px;
+  top: 300px;
+}
+
+div#accordion a["http://blog.mozilla.org/theden/2013/12/04/13-best-firefox-add-ons-of-2013"] {
+  color: red;
+}
+
+div#accordion a["https://webmaker.org/"] {
+  color: black;
+}
+
+li#lightbeam {
+  background-image: url(images/logo-lightbeam-hires.png);
+  background: url(images/logo-lightbeam-hires.png) -80px 20px no-repeat, #424f5a 0 0 no-repeat;
+  background-size: 340px 340px, auto auto;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: -0.08em;
+  text-decoration: none;
+  text-align: center;
+}
+
+li#firefox {
+  background: #0095dd url(images/firefoxos-fox-hires.png) -100px -100px no-repeat;
+  background-image: url(images/firefoxos-fox-hires.png);
+  background-size: 335px 468px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: -0.08em;
+  text-decoration: none;
+  text-align: center;
+}
+
+li#addons {
+  background: url(images/bg-addons-en.png);
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: -0.08em;
+  text-decoration: none;
+  text-align: center;
+}
+
+li#learn {
+  background-image: url(images/logo-webmaker.png);
+  background: #e1ebed url(images/logo-webmaker.png) -95px 15px no-repeat;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: -0.08em;
+  text-decoration: none;
+  text-align: center;
+}
+
