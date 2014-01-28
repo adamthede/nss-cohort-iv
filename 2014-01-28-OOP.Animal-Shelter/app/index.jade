@@ -1,0 +1,62 @@
+doctype html
+//[if IE 9]><html class="lt-ie10" lang="en" > <![endif]
+html(class='no-js', lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Animal Shelter
+    link(rel='stylesheet', href='/css/normalize.css')
+    link(rel='stylesheet', href='/css/foundation.css')
+    link(rel='stylesheet', href='/css/app.css')
+    script(src='/js/vendor/modernizr.js')
+  body
+    .row
+      .small-12.columns
+        h1 Animal Shelter
+    form
+      fieldset
+        legend Please Input Your Pet Criteria
+        .row
+          .small-6.columns
+            label Species
+            input#species(type='text', placeholder='species', autofocus=true)
+          .small-6.columns
+            label Color
+            input#color(type='text', placeholder='color')
+        .row
+          .small-6.columns
+            label Age
+            input#age(type='text', placeholder='age')
+          .small-6.columns
+            label Gender
+            input#gender(type='text', placeholder='gender')
+        .row
+          .small-12.columns
+            label Name
+            input#name(type='text', placeholder='name')
+        .row
+          .small-12.columns
+            label Description
+            textarea#description(placeholder='description')
+        .row
+          .small-10.columns
+            label Photo
+            input#photo(type='text', placeholder='url')
+          .small-2.columns
+            label &nbsp
+            button#add-photo.tiny.expand Add Photo
+        #photodisplay
+        .row
+          .small-10.columns
+            h5 When you're finished inputting your criteria, click Add Animal
+          .small-2.columns
+            button#add-animal.alert.tiny.expand Add Animal
+
+
+    script(src='/js/vendor/jquery.js')
+    script(src='/js/vendor/foundation.js')
+    script(src='/js/vendor/lodash.js')
+    script(src='/js/source/main.js')
+    script.
+      $(document).foundation()
+
