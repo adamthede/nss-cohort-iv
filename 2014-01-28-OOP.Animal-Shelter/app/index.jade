@@ -51,11 +51,23 @@ html(class='no-js', lang='en')
             h5 When you're finished inputting your criteria, click Add Animal
           .small-2.columns
             button#add-animal.alert.tiny.expand Add Animal
-
+    #animaltable
+      table
+        thead
+          th Name
+          th Age
+          th Gender
+          th Photos
+          th Description
+          th Color
+          th Species
+        tbody
 
     script(src='/js/vendor/jquery.js')
     script(src='/js/vendor/foundation.js')
     script(src='/js/vendor/lodash.js')
+    script(src='/js/source/animal.js')
+    script(src='/js/source/animal_factory.js')
     script(src='/js/source/main.js')
     script.
       $(document).foundation()
