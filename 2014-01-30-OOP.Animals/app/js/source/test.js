@@ -1,4 +1,4 @@
-/* global test: false, ok: false, Shelter: false, deepEqual: false, Animal: false */
+/* global test: false, ok: false, Shelter: false, deepEqual: false, Animal: false, Client: false */
 
 'use strict';
 
@@ -66,6 +66,34 @@ test('Shelter#placeAnimal()', function(){
 
   deepEqual(p1.name, 'Simba', 'The placed animal has name of Simba');
   deepEqual(s1.animals.length, 2, 'The placed animal was removed from the animals array');
+});
+
+/*------------------CLIENT TESTING---------------*/
+
+test('Client', function() {
+  var client = new Client();
+  var c1 = new Client();
+
+  ok(client instanceof Client, 'Yes, client is an instance of Client');
+  ok(c1 instanceof Client, 'Yes, c1 is an instance of Client');
+});
+
+test('Client#name', function(){
+  var c1 = new Client('Jeremiah');
+
+  deepEqual(c1.name, 'Jeremiah', 'c1 should have a name');
+});
+
+test('Client#adopt', function(){
+  var a1 = new Animal('Fido');
+  var s1 = new Shelter();
+  var c1 = new Client();
+  s1.placeAnimal(a1);
+  c1.adopt(a1);
+
+  deepEqual(c1.animals.length, 1, 'The client should have one animal after adopting');
+  deepEqual(c1.animals[0].name, 'Fido', 'The name of the adopted animal should be Fido');
+  deepEqual(s1.placeAnimal('Fido'), c1.adopt('Fido'), 'Fido should come from the shelter');
 });
 
 /*------------------ANIMAL TESTING---------------*/
