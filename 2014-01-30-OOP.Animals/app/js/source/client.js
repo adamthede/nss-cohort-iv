@@ -4,14 +4,20 @@ var Client = (function(){
 
   'use strict';
 
+  var animals;
+
   function Client(n, a){
     this.name = n;
-    this.animals = [];
+    animals = [];
   }
 
 
   Client.prototype.adopt = function(animal){
-    this.animals.push(animal);
+    animals.push(animal);
+  };
+  
+  Client.prototype.adoptedAnimal = function(){
+    return animals.pop();
   };
 
   return Client;

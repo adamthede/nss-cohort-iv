@@ -41,7 +41,7 @@ test('Shelter#setHours()', function(){
     {day:'Friday', open:'9AM', close:'4PM'},
   ]);
 
-  deepEqual(s1.hours, 'Monday 8AM-5PM, Wednesday 11AM-2PM, Friday 9AM-4PM', 's1 should have set hours');
+  deepEqual(s1.getHours(), 'Monday 8AM-5PM, Wednesday 11AM-2PM, Friday 9AM-4PM', 's1 should have set hours');
 });
 
 test('Shelter#addAnimal()', function(){
@@ -49,9 +49,7 @@ test('Shelter#addAnimal()', function(){
   var s1 = new Shelter();
   s1.addAnimal(a1);
 
-  deepEqual(s1.animals.length, 1, 'One animal was added to the shelter');
-  ok(s1.animals[0] instanceof Animal, 'An animal was added, not a person');
-  deepEqual(s1.animals[0].name, 'Fido', 'The animals name is indeed Fido');
+  deepEqual(s1.animalCount(), 1, 'One animal was added to the shelter');
 });
 
 test('Shelter#placeAnimal()', function(){
@@ -65,7 +63,7 @@ test('Shelter#placeAnimal()', function(){
   var p1 = s1.placeAnimal('Simba');
 
   deepEqual(p1.name, 'Simba', 'The placed animal has name of Simba');
-  deepEqual(s1.animals.length, 2, 'The placed animal was removed from the animals array');
+  deepEqual(s1.animalCount(), 2, 'The placed animal was removed from the animals array');
 });
 
 /*------------------CLIENT TESTING---------------*/
@@ -93,7 +91,7 @@ test('Client#adopt', function(){
 
   deepEqual(c1.animals.length, 1, 'The client should have one animal after adopting');
   deepEqual(c1.animals[0].name, 'Fido', 'The name of the adopted animal should be Fido');
-  deepEqual(s1.placeAnimal('Fido'), c1.adopt('Fido'), 'Fido should come from the shelter');
+  deepEqual(s1.placeAnimal('Fido'), c1.adoptedAnimal(), 'Fido should come from the shelter');
 });
 
 /*------------------ANIMAL TESTING---------------*/
