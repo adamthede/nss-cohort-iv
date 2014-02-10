@@ -1,0 +1,59 @@
+doctype html
+//[if IE 9]><html class="lt-ie10" lang="en" > <![endif]
+html(class='no-js', lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Foundation 5
+    link(rel='stylesheet', href='/css/normalize.css')
+    link(rel='stylesheet', href='/css/foundation.css')
+    link(rel='stylesheet', href='/css/app.css')
+    script(src='/js/vendor/modernizr.js')
+  body
+    .row
+      .small-12.columns
+        h1 Foundation 5 Template
+    .row
+      .small-3.columns
+        button#one.radius.tiny One
+      .small-3.columns
+        button#two.radius.tiny Two
+      .small-6.columns
+    .row
+      .small-3.columns
+        input#numberone(placeholder='First Number')
+      .small-3.columns
+        input#numbertwo(placeholder='Second Number')
+      .small-2.columns
+        button#sum.radius.tiny Sum
+      .small-4.columns
+        #answer
+    .row
+      .small-3.columns
+        input#name(placeholder='What is your name?')
+      .small-3.columns
+        input#age(placeholder='What is your age?')
+      .small-3.columns
+        button#candrink.radius.tiny Can you drink?
+      .small-3.columns
+        #answercandrink
+    .row
+      .small-6.columns
+        input#numbers
+      .small-3.columns
+        button#product.radius.tiny Find the Product!
+      .small-3.columns
+        #productanswer
+    .row
+      .small-6.columns
+        input#names.expand
+      .small-3.columns
+        button#namecalc.radius.tiny Calculate Names!
+      .small-3.columns
+        #namesanswer
+
+    script(src='/js/vendor/jquery.js')
+    script(src='/js/vendor/foundation.js')
+    script(src='/js/vendor/lodash.js')
+    script(src='/js/source/main.js')
+
