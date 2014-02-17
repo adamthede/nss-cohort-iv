@@ -1,0 +1,44 @@
+doctype html
+//[if IE 9]><html class="lt-ie10" lang="en" > <![endif]
+html(class='no-js', lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title IMDB Lite
+    link(rel='stylesheet', href='/css/normalize.css')
+    link(rel='stylesheet', href='/css/foundation.css')
+    link(rel='stylesheet', href='/css/app.css')
+    script(src='/js/vendor/modernizr.js')
+  body
+    .row
+      .small-12.columns
+        h1 IMDB Lite
+    .row
+      .small-4.columns
+        form#movie
+          fieldset
+            legend Enter a Movie
+            input#id(type='hidden')
+            input#name(placeholder='Name of Movie', autofocus='true', name='name')
+            input#rating(placeholder='Rating of Movie', name='rating')
+            input#runningtime(placeholder='Running Time', name='runningtime')
+            input#releaseyear(placeholder='Release Year', name='releaseyear')
+            input#studio(placeholder='Studio', name='studio')
+            input#actors(placeholder='Main Actors', name='actors')
+            input#director(placeholder='Director', name='director')
+            input#poster(placeholder='URL for Movie Poster', name='poster')
+            label &nbsp;
+            button.tiny.radius#addmovie Add Movie
+            button.tiny.radius#updatemovie Update
+       .small-8.columns
+         h2 Movies Currently in Database
+         .small-12.columns
+           table#moviestuff
+             tbody
+               tr
+
+    script(src='/js/vendor/jquery.js')
+    script(src='/js/vendor/foundation.js')
+    script(src='/js/vendor/lodash.js')
+    script(src='/js/source/main.js')
+

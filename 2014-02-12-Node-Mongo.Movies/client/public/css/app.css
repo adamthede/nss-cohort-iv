@@ -1,0 +1,21 @@
+body {
+  background-color: #add8e6;
+}
+#updatemovie {
+  margin: 5px;
+}
+.backgroundpics {
+  height: 250px;
+  width: 168.75px;
+  margin: 5px 25px 25px 5px;
+  background-size: cover;
+}
+table {
+  width: 100%;
+}
+fieldset {
+  background-color: lightgray;
+}
+li {
+  list-style: none;
+}
