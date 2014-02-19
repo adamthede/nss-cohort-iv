@@ -16,6 +16,7 @@
     "jshint-stylish": "*",
     "grunt-contrib-watch": "*",
     "mocha": "*",
-    "chai": "*"
+    "chai": "*",
+    "supertest": "*"
   }
 }
