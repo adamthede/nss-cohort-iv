@@ -1,6 +1,6 @@
 'use strict';
 
-//var Mongo = require('mongodb');
+var mongodb = require('mongodb');
 var Priority;
 
 exports.index = function(req,res){
@@ -46,7 +46,10 @@ exports.destroy = function(req, res){
 exports.update = function(req, res){
   init();
 
-  var p1 = new Priority(req.body);
+  var id = mongodb.ObjectID(req.params.id);
+  var name = req.body.name;
+  var value = req.body.value;
+  var p1 = new Priority({_id:id, name:name, value:value});
   p1.save(function(){
     res.send(p1);
   });
