@@ -21,10 +21,6 @@ exports.create = function(req, res){
   });
 };
 
-function init(){
-  Priority = global.nss.Priority;
-}
-
 exports.show = function(req, res){
   init();
   
@@ -54,3 +50,7 @@ exports.update = function(req, res){
     res.send(p1);
   });
 };
+
+function init(){
+  Priority = global.nss.Priority;
+}

@@ -43,7 +43,7 @@
 
     var $tddeletebutton = $('<td>');
     var $deletebutton = $('<button>');
-    $deletebutton.addClass('tiny delete');
+    $deletebutton.addClass('tiny alert delete');
     $deletebutton.text('X');
     $tddeletebutton.append($deletebutton);
 
