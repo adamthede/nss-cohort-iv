@@ -4,44 +4,70 @@ html(class='no-js', lang='en')
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title To Do
+    title To Do - To Dos
     link(rel='stylesheet', href='/css/normalize.css')
     link(rel='stylesheet', href='/css/foundation.css')
     link(rel='stylesheet', href='/css/app.css')
     script(src='/js/vendor/modernizr.js')
+    script(src='/js/vendor/jquery.js')
+    script(src='/js/vendor/foundation.js')
+    script(src='/js/vendor/lodash.js')
+    script(src='/js/vendor/moment.js')
+    script(src='/js/source/main.js')
+    script moment().format()
   body
     .row
       .small-12.columns
         h1 Crazy Awesome To Do App
     .row
       .small-12.columns
-        form#priorityinput
+        form#todoinput
           fieldset
-            legend Create a Priority Level:
+            legend Add a To Do:
             .row
               .small-12.columns
                 .row
+                  .small-3.columns
+                    label To Do
+                    input#todo(type='text', name='name', placeholder='Homework', autofocus='true')
+                  .small-3.columns
+                    label Due Date
+                    input#duedate(type='date', name='dueDate')
+                  .small-2.columns
+                    label <a href='/priorities.html'>Priority Level</a>
+                    select#priority(type='select', name='priority_id')
                   .small-4.columns
-                    label Priority Name
-                    input#todo(type='text', name='name', placeholder='Very High', autofocus='true')
-                  .small-4.columns
-                    label Priority Level
-                    input#prioritylevel(type='text', name='value', placeholder='11')
-                  .small-4.columns
+                    label Tags
+                    input#tags(type='text', name='tags', placeholder='JavaScript, Mocha, Jade')
+              .small-12.columns
+                .row
+                  .small-2.columns
                     label &nbsp
-                    button.tiny.radius#createpriority Create Priority
+                    button.tiny.radius#createtodo Add To Do
       .small-12.columns
-        h2 Priorities
+        h2 To Dos
         .small-12.columns
           table
             thead
+              th#sortcomplete.sortorder <a href=#>Complete</a>
               th Name
-              th Value
-              th Delete
-              th ---
-            tbody#priorities
-
-    script(src='/js/vendor/jquery.js')
-    script(src='/js/vendor/foundation.js')
-    script(src='/js/vendor/lodash.js')
-    script(src='/js/source/main.js')
+              th#sortdate.sortorder <a href=#>Due Date</a>
+              th Priority
+              th Tags
+            tbody#todos
+        .small-12.columns
+          .row
+            .small-2.columns
+              label Limit View To:
+              input#inputlimit(type='text', placeholder='4', name='limit')
+            .small-2.columns
+              label &nbsp
+              button.tiny.radius#limitview Limit View
+            .small-4.columns.centered.hidden
+              label &nbsp
+            .small-2.columns
+              label &nbsp
+              button.tiny.radius#previouspage Previous Page
+            .small-2.columns
+              label &nbsp
+              button.tiny.radius#nextpage Next Page

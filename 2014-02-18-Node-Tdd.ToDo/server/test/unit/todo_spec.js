@@ -78,6 +78,29 @@ describe('Todo', function(){
     });
   });
 
+  describe('.queryData', function(){
+    it('should return all to dos in the database via the filter query', function(done){
+      var t1 = new Todo({name:'Mow Lawn', dueDate:'02/28/2014', isComplete:false, tags:['home', 'garden'], priority_id:priority_id});
+      var t2 = new Todo({name:'Pull Weeds', dueDate:'02/28/2014', isComplete:false, tags:['home', 'garden'], priority_id:priority_id});
+      var t3 = new Todo({name:'Plant Flowers', dueDate:'02/28/2014', isComplete:false, tags:['home', 'garden'], priority_id:priority_id});
+      var t4 = new Todo({name:'Paint House', dueDate:'03/01/2014', isComplete:true, tags:['home'], priority_id:priority_id});
+      t1.save(function(){
+        t2.save(function(){
+          t3.save(function(){
+            t4.save(function(){
+              var queryObj = {tag:'home', limit:10, page:1, sort:'isComplete', order:-1};
+              Todo.queryData(queryObj, function(todos){
+                expect(todos).to.have.length(4);
+                done();
+              });
+            });
+          });
+        });
+      });
+    });
+  });
+
+
   describe('.findById', function(){
     it('should return a todo via a specific id', function(done){
       var t1 = new Todo({name:'Mow Lawn', dueDate:'02/28/2014', isComplete:false, tags:['home', 'garden'], priority_id:priority_id});

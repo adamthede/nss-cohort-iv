@@ -30,6 +30,9 @@ app.post('/todos', d, todos.create);
 app.get('/todos', d, todos.index);
 app.get('/todos/:id', d, todos.show);
 app.put('/todos/:id', d, todos.update);
+app.del('/todos/:id', d, todos.destroy);
+app.put('/todos/toggle/:id', d, todos.toggle);
+console.log('Routes Loaded');
 /* --- pipeline ends   */
 
 var server = require('http').createServer(app);

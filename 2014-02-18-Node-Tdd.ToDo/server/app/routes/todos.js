@@ -17,7 +17,7 @@ exports.create = function(req, res){
 exports.index = function(req, res){
   init();
 
-  Todo.findAll(function(todos){
+  Todo.queryData(req.query, function(todos){
     res.send({todos:todos});
   });
 };
@@ -43,6 +43,21 @@ exports.update = function(req, res){
   var t1 = new Todo({_id:id, name:name, dueDate:dueDate, isComplete:isComplete, tags:tags, priority_id:priority_id});
   t1.save(function(){
     res.send(t1);
+  });
+};
+
+exports.destroy = function(req, res){
+  init();
+
+  var id = req.params.id;
+  Todo.deleteById(id, function(count){
+    res.send({id:id, count:count});
+  });
+};
+
+exports.toggle = function(req, res){
+  Todo.findByIdAndToggleIsComplete(req.params.id, function(todo){
+    res.send(todo);
   });
 };
 

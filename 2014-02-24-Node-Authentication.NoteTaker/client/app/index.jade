@@ -1,0 +1,47 @@
+doctype html
+//[if IE 9]><html class="lt-ie10" lang="en" > <![endif]
+html(class='no-js', lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Note Take
+    link(rel='stylesheet', href='/css/normalize.css')
+    link(rel='stylesheet', href='/css/foundation.css')
+    link(rel='stylesheet', href='/css/app.css')
+    script(src='/js/vendor/modernizr.js')
+  body
+    .row
+      .small-12.columns
+        h1 Note Taker
+    .row
+      .small-2.columns
+        button.tiny.radius.expand#toggleuserform Register / Login
+      .small-10.columns
+        label &nbsp
+    .row
+      .small-4.columns
+        form#user
+          fieldset
+            legend User Authentication
+            .row
+              .small-12.columns
+                label Email Address
+                input#email(type='text', name='email', placeholder='me@you.com', autofocus=true)
+            .row
+              .small-12.columns
+                label Password
+                input#password(type='password', name='password', placeholder='it\'s a secret')
+            .row
+              .small-6.columns
+                label &nbsp
+                button.tiny.radius.expand#register Register
+              .small-6.columns
+                label &nbsp
+                button.tiny.radius.expand#login Login
+
+    script(src='/js/vendor/jquery.js')
+    script(src='/js/vendor/foundation.js')
+    script(src='/js/vendor/lodash.js')
+    script(src='/js/vendor/moment.js')
+    script(src='/js/source/main.js')
+

@@ -32,7 +32,7 @@ Priority.prototype.save = function(fn){
 };
 
 Priority.findAll = function(fn){
-  priorities.find().toArray(function(err, priorities){
+  priorities.find().sort({value:1}).toArray(function(err, priorities){
     fn(priorities);
   });
 };

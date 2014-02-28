@@ -66,6 +66,20 @@ describe('todos', function(){
     });
   });
 
+  describe('GET /todos?query', function(){
+    it('should return all todos in the database that meet the query restrictions', function(done){
+      request(app)
+      .get('/todos?tag=home')
+      .end(function(err, res){
+        expect(res.body.todos).to.have.length(3);
+        expect(res.body.todos[0].name).to.be.ok;
+        expect(res.body.todos[0].isComplete).to.be.false;
+        expect(res.body.todos[0]._id).to.have.length(24);
+        done();
+      });
+    });
+  });
+
   describe('POST /todos', function(){
     it('should post a new todo to the database', function(done){
       request(app)
@@ -116,6 +130,17 @@ describe('todos', function(){
     });
   });
 
-
+  describe('DELETE /todos/:id', function(){
+    it('should delete a given todo in the database', function(done){
+      var id = todo_id.toString();
+      request(app)
+      .del('/todos/' + id)
+      .end(function(err, res){
+        expect(res.body.count).to.equal(1);
+        expect(res.body.id).to.equal(id);
+        done();
+      });
+    });
+  });
 
 });

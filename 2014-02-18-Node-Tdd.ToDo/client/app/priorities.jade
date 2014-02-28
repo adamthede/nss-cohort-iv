@@ -1,0 +1,46 @@
+doctype html
+//[if IE 9]><html class="lt-ie10" lang="en" > <![endif]
+html(class='no-js', lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title To Do - Priorities
+    link(rel='stylesheet', href='/css/normalize.css')
+    link(rel='stylesheet', href='/css/foundation.css')
+    link(rel='stylesheet', href='/css/priorities.css')
+    script(src='/js/vendor/modernizr.js')
+    script(src='/js/vendor/jquery.js')
+    script(src='/js/vendor/foundation.js')
+    script(src='/js/vendor/lodash.js')
+    script(src='/js/source/priorities.js')
+  body
+    .row
+      .small-12.columns
+        h1 <a href='/index.html'>Crazy Awesome To Do App</a>
+    .row
+      .small-12.columns
+        form#priorityinput
+          fieldset
+            legend Create a Priority Level:
+            .row
+              .small-12.columns
+                .row
+                  .small-4.columns
+                    label Priority Name
+                    input#todo(type='text', name='name', placeholder='Very High', autofocus='true')
+                  .small-4.columns
+                    label Priority Level
+                    input#prioritylevel(type='text', name='value', placeholder='11')
+                  .small-4.columns
+                    label &nbsp
+                    button.tiny.radius#createpriority Create Priority
+      .small-12.columns
+        h2 Priorities
+        .small-12.columns
+          table
+            thead
+              th Name
+              th Value
+              th Delete
+              th ---
+            tbody#priorities
