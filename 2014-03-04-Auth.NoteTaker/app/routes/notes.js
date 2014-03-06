@@ -20,6 +20,7 @@ exports.new = function(req, res){
 };
 
 exports.create = function(req, res){
+  req.body.userId = req.session.userId;
   var newNote = new Note(req.body);
   newNote.insert(function(){
     res.redirect('notes/index');
