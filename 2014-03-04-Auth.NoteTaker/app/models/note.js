@@ -32,6 +32,15 @@ Note.prototype.delete = function(fn){
   });
 };
 
+Note.deleteById = function(id, fn){
+  var _id = Mongo.ObjectID(id);
+
+  notes.remove({_id:_id}, function(err, count){
+    fn(count);
+  });
+};
+
+
 Note.findById = function(id, fn){
   var _id = Mongo.ObjectID(id);
 

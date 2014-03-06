@@ -25,10 +25,10 @@ function load(app, fn){
   app.post('/logout', d, users.logout);
 
   app.get('/notes', d, notes.index);
-//  app.get('/notes/new', d, notes.new);
-//  app.get('/notes/:id', d, notes.show);
-//  app.post('/notes', d, notes.create);
-//  app.delete('/notes/:id', d, notes.delete);
+  app.get('/notes/new', d, notes.new);
+  app.get('/notes/:id', d, notes.show);
+  app.post('/notes', d, notes.create);
+  app.delete('/notes/:id', d, notes.delete);
 
   console.log('Routes Loaded');
   fn();

@@ -1,3 +1,5 @@
+/* jshint expr:true */
+
 'use strict';
 
 process.env.DBNAME = 'notes-app';
@@ -7,6 +9,7 @@ var request = require('supertest');
 var User;
 var Note;
 var u1;
+var n1;
 var cookie;
 
 describe('users', function(){
@@ -26,7 +29,10 @@ describe('users', function(){
       u1 = new User({email:'adam@adam.com', password:'1234'});
       u1.hashPassword(function(){
         u1.insert(function(){
-          done();
+          n1 = new Note({title:'My Note', body:'stuff', dateCreated:'2014-03-06', tags:'new, note, weather', userId:u1._id.toString()});
+          n1.insert(function(){
+            done();
+          });
         });
       });
     });
@@ -58,6 +64,49 @@ describe('users', function(){
         .get('/notes')
         .set('cookie', cookie)
         .expect(200, done);
+      });
+    });
+
+    describe('GET /notes/:id', function(){
+      it('logged in user should be able to access a single note', function(done){
+        var id = n1._id.toString();
+        request(app)
+        .get('/notes/' + id)
+        .set('cookie', cookie)
+        .expect(200, done);
+      });
+    });
+
+    describe('GET /notes/new', function(){
+      it('logged in user should be able to create a new note', function(done){
+        request(app)
+        .get('/notes/new')
+        .set('cookie', cookie)
+        .expect(200, done);
+      });
+    });
+
+    describe('POST /notes', function(){
+      it('logged in user should be able to save a new note in the db', function(done){
+        request(app)
+        .post('/notes')
+        .set('cookie', cookie)
+        .field('title', 'New Note')
+        .field('body', 'I made an awesome new note')
+        .field('dateCreated', '2014-03-05')
+        .field('tags', 'new, homework, project')
+        .field('userId', u1._id)
+        .expect(302, done);
+      });
+    });
+
+    describe('DEL /notes/:id', function(){
+      it('should allow a logged in user to delete a note from the db', function(done){
+        var id = n1._id.toString();
+        request(app)
+        .del('/notes/' + id)
+        .set('cookie', cookie)
+        .expect(302, done);
       });
     });
   });

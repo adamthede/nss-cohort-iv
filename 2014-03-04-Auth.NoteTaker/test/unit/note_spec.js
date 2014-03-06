@@ -134,4 +134,19 @@ describe('Note', function(){
     });
   });
 
+  describe('.deleteById', function(){
+    it('should delete a specific note via id in the db', function(done){
+      var n1 = new Note({title:'My Note', body:'stuff', dateCreated:'2014-03-06', tags:'house, work, garden', userId:sue._id.toString()});
+      var n2 = new Note({title:'Fryman Notes', body:'Robert wrote some stuff', dateCreated:'', tags:'spotify, github', userId:sue._id.toString()});
+      n1.insert(function(){
+        n2.insert(function(){
+          var id = n1._id.toString();
+          Note.deleteById(id, function(count){
+            expect(count).to.equal(1);
+            done();
+          });
+        });
+      });
+    });
+  });
 });

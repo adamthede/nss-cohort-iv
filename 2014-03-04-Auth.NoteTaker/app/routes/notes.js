@@ -8,3 +8,27 @@ exports.index = function(req, res){
   });
 };
 
+exports.show = function(req, res){
+  var id = req.params.id;
+  Note.findById(id, function(foundNote){
+    res.render('notes/show', {note:foundNote});
+  });
+};
+
+exports.new = function(req, res){
+  res.render('notes/new', {title: 'Create a New Note'});
+};
+
+exports.create = function(req, res){
+  var newNote = new Note(req.body);
+  newNote.insert(function(){
+    res.redirect('notes/index');
+  });
+};
+
+exports.delete = function(req, res){
+  var id = req.params.id;
+  Note.deleteById(id, function(){
+    res.redirect('notes/index');
+  });
+};
